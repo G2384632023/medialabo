@@ -1,42 +1,43 @@
 // 課題3-2 のプログラムはこの関数の中に記述すること
+
 function print(data) {
   if (data.id === 360630) {
-      console.log("Location: Cairo");
-  } else if (data.id === 524901) {
-      console.log("Location: Moscow");
-  } else if (data.id === 993800) {
-      console.log("Location: Johannesburg");
-  } else if (data.id === 1816670) {
-      console.log("Location: Beijing");
-  } else if (data.id === 1850147) {
-      console.log("Location: Tokyo");
-  } else if (data.id === 1880252) {
-      console.log("Location: Singapore");
-  } else if (data.id === 2147714) {
-      console.log("Location: Sydney");
-  } else if (data.id === 2643743) {
-      console.log("Location: London");
-  } else if (data.id === 2968815) {
-      console.log("Location: Paris");
-  } else if (data.id === 3451189) {
-      console.log("Location: Rio de Janeiro");
-  } else if (data.id === 5128581) {
-      console.log("Location: New York");
-  } else if (data.id === 5368361) {
-      console.log("Location: Los Angeles");
-  } else {
-      console.log("Location: Unknown");
+    console.log('Cairo カイロ （エジプト）');
+    } else if (data.id === 524901) {
+    console.log('Moscow モスクワ （ロシア）');
+    } else if (data.id === 993800) {
+     console.log('Johannesburg ヨハネスブルク （南アフリカ）');
+    } else if (data.id === 1816670) {
+    console.log('Beijing 北京 （中華人民共和国）');
+    } else if (data.id === 1850147) {
+    console.log('Tokyo 東京 （日本）');
+    } else if (data.id === 1880252) {
+    console.log('Singapore シンガポール');
+    } else if (data.id === 2147714) {
+     console.log('Sydney シドニー （オーストラリア）');
+    } else if (data.id === 2643743) {
+    console.log('London ロンドン （イギリス）');
+    } else if (data.id === 2968815) {
+    console.log('Paris パリ （フランス）');
+    } else if (data.id === 3451189) {
+    console.log('Rio de Janeiro リオデジャネイロ （ブラジル）');
+    } else if (data.id === 5128581) {
+    console.log('New York ニューヨーク （アメリカ合衆国）');
+    } else if (data.id === 5368361) {
+    console.log('Los Angeles ロサンゼルス （アメリカ合衆国）');
+    }
+  
+    console.log(data.name);
+    console.log("経度: " + data.coord.lon);
+    console.log("緯度: " + data.coord.lat);
+    console.log("最低気温: " + data.main.temp_min + "°C");
+    console.log("最高気温: " + data.main.temp_max + "°C");
+    console.log("湿度: " + data.main.humidity + "%");
+    console.log("風速: " + data.wind.speed + " m/s");
+    console.log("風向: " + data.wind.deg + "°");
   }
   
-  console.log("Longitude: " + data.coord.lon);
-  console.log("Latitude: " + data.coord.lat);
-  console.log("Weather: " + data.weather[0].description);
-  console.log("Min Temperature: " + data.main.temp_min + "°C");
-  console.log("Max Temperature: " + data.main.temp_max + "°C");
-  console.log("Humidity: " + data.main.humidity + "%");
-  console.log("Wind Speed: " + data.wind.speed + " m/s");
-  console.log("Wind Direction: " + data.wind.deg + "°");
-}
+
 
 
 // 課題5-1 の関数 printDom() はここに記述すること
