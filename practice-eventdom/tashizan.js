@@ -1,10 +1,11 @@
-function calc() {
-    let left = parseInt(document.getElementById("left").value, 10);
-    let right = parseInt(document.getElementById("right").value, 10);
-    let result = left + right;
-    document.getElementById("answer").textContent = result;
-  }
-  
-  let b = document.querySelector('button#calc');
-  b.addEventListener("click", calc);
+let b = document.querySelector('button#calc');
+b.addEventListener('click',greeting);
+
+function greeting() {
+  let left = Number(document.querySelector('input#left').value);
+  let right = Number(document.querySelector('input#right').value);
+  let answer = left + right;
+
+  document.querySelector('span#answer').textContent = answer;
+}
   
