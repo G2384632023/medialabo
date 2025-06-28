@@ -125,13 +125,6 @@ function printDom(data) {
   r.insertAdjacentElement('beforeend', p9);
 }
 // 課題6-1 のイベントハンドラ sendRequest() の定義
-function start(){
-  let tosi = document.getElementById("kotae");
-  let id = trance(tosi.value);
-  console.log(id);
-
-  if(id != 0) sendRequest(id);
-}
 
 function trance(S){
   let ID = 0;
