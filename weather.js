@@ -79,6 +79,7 @@ bnt.addEventListener("click", sendRequest);
 // 課題5-1 のイベントハンドラの定義
 
 
+
 function printDom(data) {
   let r1 = document.getElementById('result');
   r1.remove();
