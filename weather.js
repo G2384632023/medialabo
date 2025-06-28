@@ -11,70 +11,78 @@ function print(data) {
   console.log("経度:", data.coord.lon);
 }
 
-  function printDom(data) {
-    // すでに result が存在する場合は削除
-    const oldResult = document.querySelector('#result');
-    if (oldResult) {
-      oldResult.remove();
-    }
+let bnt = document.querySelector("button#searchBtn");
+bnt.addEventListener("click", sendRequest);
+
+//   function printDom(data) {
+//     // すでに result が存在する場合は削除
+//     const oldResult = document.querySelector('#result');
+//     if (oldResult) {
+//       oldResult.remove();
+//     }
   
-document.addEventListener('DOMContentLoaded', function () {
-  const btn = document.querySelector('#searchBtn');
-  btn.addEventListener('click', sendRequest);
-  });
+// document.addEventListener('DOMContentLoaded', function () {
+//   const btn = document.querySelector('#searchBtn');
+//   btn.addEventListener('click', sendRequest);
+//   });
   
-    // div#result を作成して body に追加
-    const resultDiv = document.createElement('div');
-    resultDiv.id = 'result';
-    document.body.appendChild(resultDiv);
+//     // div#result を作成して body に追加
+//     const resultDiv = document.createElement('div');
+//     resultDiv.id = 'result';
+//     document.body.appendChild(resultDiv);
   
-    // ul 要素を作成
-    const u = document.createElement('ul');
+//     // ul 要素を作成
+//     const u = document.createElement('ul');
   
-    // 各項目を li 要素として追加（配列を使わずに1つずつ）
-    let l;
+//     // 各項目を li 要素として追加（配列を使わずに1つずつ）
+//     let l;
   
-    l = document.createElement('li');
-    l.textContent = '都市名: ' + data.name;
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '都市名: ' + data.name;
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '天気: ' + data.weather[0].description;
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '天気: ' + data.weather[0].description;
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '最低気温: ' + data.main.temp_min + '℃';
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '最低気温: ' + data.main.temp_min + '℃';
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '最高気温: ' + data.main.temp_max + '℃';
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '最高気温: ' + data.main.temp_max + '℃';
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '湿度: ' + data.main.humidity + '%';
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '湿度: ' + data.main.humidity + '%';
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '風速: ' + data.wind.speed + 'm/s';
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '風速: ' + data.wind.speed + 'm/s';
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '風向: ' + data.wind.deg + '°';
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '風向: ' + data.wind.deg + '°';
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '緯度: ' + data.coord.lat;
-    u.insertAdjacentElement('beforeend', l);
+//     l = document.createElement('li');
+//     l.textContent = '緯度: ' + data.coord.lat;
+//     u.insertAdjacentElement('beforeend', l);
   
-    l = document.createElement('li');
-    l.textContent = '経度: ' + data.coord.lon;
-    u.insertAdjacentElement('beforeend', l);
-  }
+//     l = document.createElement('li');
+//     l.textContent = '経度: ' + data.coord.lon;
+//     u.insertAdjacentElement('beforeend', l);
+//   }
   
 
 
 // 課題5-1 のイベントハンドラの定義
+
+
 function printDom(data) {
+  let r1 = document.getElementById('result');
+  r1.remove();
+
   let r = document.createElement('div');
   r.id = 'result';
   document.body.insertAdjacentElement('beforeend', r);
@@ -116,14 +124,90 @@ function printDom(data) {
   r.insertAdjacentElement('beforeend', p9);
 }
 // 課題6-1 のイベントハンドラ sendRequest() の定義
+function start(){
+  let tosi = document.getElementById("kotae");
+  let id = trance(tosi.value);
+  console.log(id);
+
+  if(id != 0) sendRequest(id);
+}
+
+function trance(S){
+  let ID = 0;
+  switch(S){
+    case "カイロ":
+    case "Cairo":
+    case "エジプト":
+      ID = 360630
+      break;
+    case "モスクワ":
+    case "Moscow":
+    case "ロシア":
+      ID = 524901;
+      break;
+    case "ヨハネスブルク":
+    case "Johannesburg":
+    case "南アフリカ":
+      ID = 993800;
+      break;
+    case "北京":
+    case "Beijing":
+    case "中華人民共和国":
+      ID = 1816670;
+      break;
+    case "東京":
+    case "Tokyo":
+    case "日本":
+      ID = 1850147;
+      break;
+    case "Singapore":
+    case "シンガポール":
+      ID = 1880252;
+      break;
+    case "Sydney":
+    case "オーストラリア":
+    case "シドニー":
+      ID = 2147714;
+      break;
+    case "ロンドン":
+    case "London":
+    case "イギリス":
+      ID = 2643743;
+      break;
+    case "パリ":
+    case "Paris":
+    case "フランス":
+      ID = 2968815;
+      break;
+    case "リオデジャネイロ":
+    case "Rio de Janeiro":
+    case "ブラジル":
+      ID = 3451189;
+      break;
+    case "ニューヨーク":
+    case "New York":
+      ID = 5128581;
+      break;
+    case "ロサンゼルス":
+    case "Los Angeles":
+      ID = 5368361;
+      break;
+  }
+  return ID;
+}
+
 function sendRequest() {
-  const city = document.querySelector('#kotae').value.trim();
-  if (!city) {
-    alert('都市名を入力してください');
+  let tosi = document.getElementById("kotae");
+  let id = trance(tosi.value);
+  console.log(id);
+
+  if(id === 0){
+    alert("検索ワードを正しく入力してください");
     return;
   }
+  
 
-  const url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/{id}.json';
+  const url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/'+ id + '.json';
 
   axios.get(url)
     .then(showResult)   // 通信成功時の処理
@@ -135,16 +219,11 @@ function sendRequest() {
 function showResult(resp) {
   let data = resp.data;
 
-  // 念のため文字列型ならオブジェクトに変換
-  if (typeof data === 'string') {
-    data = JSON.parse(data);
-  }
-
   // コンソール出力（デバッグ用）
   console.log(data);
 
   // 表示処理（print, printDom が定義されている前提）
-  print(data);
+  //print(data);
   printDom(data);
 }
 
